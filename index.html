@@ -67,8 +67,40 @@
     <footer>
         <p>&copy; 2025 Tugas Progdas | Semua harus cobain.</p>
     </footer>
-    <script src="script.js"></script>
+    <a href="#" id="backToTopBtn" class="floating-btn" role="button" aria-label="Kembali ke atas">
+        <img src="About.png" alt="Tentang">
+    </a>
+
+    <script>
+        (function(){
+            var btn = document.getElementById('backToTopBtn');
+            if(!btn) return;
+            var threshold = 50;
+
+            function updateVisibility(){
+                if(window.scrollY > threshold) btn.classList.add('visible');
+                else btn.classList.remove('visible');
+            }
+
+            updateVisibility();
+
+            window.addEventListener('scroll', updateVisibility, { passive: true });
+
+            btn.addEventListener('click', function(e){
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            btn.addEventListener('keydown', function(e){
+                if(e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    btn.click();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
+
 
 
