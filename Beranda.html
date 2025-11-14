@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="logo">💻 Progdas</div>
         <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
+            <li><a href="Beranda.html">Beranda</a></li>
             <li><a href="About.HTML">Tentang</a></li>
             <li><a href="Contact.HTML">Kontak</a></li>
         </ul>
@@ -22,7 +22,7 @@
     <section class="hero">
         <h1>Selamat Datang di Programing Dasar</h1>
         <p>Kami membantu Anda untuk menjadi lebih baik dan lebih jago dalam pemrograman.</p>
-        <a href="#testimoni" class="btn">Pelajari Lebih Lanjut</a>  
+        <a href="About.html" class="btn">Pelajari Lebih Lanjut</a>  
     </section>
 
     <!-- Layanan -->
@@ -67,7 +67,37 @@
     <footer>
         <p>&copy; 2025 Tugas Progdas | Semua harus cobain.</p>
     </footer>
-    <script src="script.js"></script>
+    <a href="#" id="backToTopBtn" class="floating-btn" role="button" aria-label="Kembali ke atas">
+        <img src="About.png" alt="Tentang">
+    </a>
+
+    <script>
+        (function(){
+            var btn = document.getElementById('backToTopBtn');
+            if(!btn) return;
+            var threshold = 50;
+
+            function updateVisibility(){
+                if(window.scrollY > threshold) btn.classList.add('visible');
+                else btn.classList.remove('visible');
+            }
+
+            updateVisibility();
+
+            window.addEventListener('scroll', updateVisibility, { passive: true });
+
+            btn.addEventListener('click', function(e){
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            btn.addEventListener('keydown', function(e){
+                if(e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    btn.click();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
-
